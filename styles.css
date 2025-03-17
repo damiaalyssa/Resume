@@ -12,7 +12,14 @@ header {
     background: #ffffff;
     color: #fff;
     padding: 1em 0;
+    position: fixed;  /* Sticks to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;      /* Full width */
+    z-index: 1000;    /* Ensures it stays on top */
 }
+
+
 
 nav ul {
     display: flex;
@@ -23,20 +30,11 @@ nav ul {
 
 nav ul li {
     margin: 0 5em;
+    position: relative;
 }
 
 nav ul li a {
     color: #fff;
-    text-decoration: none;
-    position: relative;
-}
-
-/* Hover effect for navigation links */
-nav ul li {
-    position: relative;
-}
-
-nav ul li a {
     position: relative;
     text-decoration: none;
     color: #000000;
@@ -49,10 +47,10 @@ nav ul li a {
 nav ul li a::after {
     content: '';
     position: absolute;
-    left: -53px;
-    bottom: -5px;
+    left: -55px;
+    bottom: -10px;
     width: 280%; /* Increase the width */
-    height: 60px; /* Increase the height */
+    height: 70px; /* Increase the height */
     background: url('assets/scribble.png') no-repeat center/contain;
     opacity: 0;
     transform: scaleX(0);
@@ -68,20 +66,79 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 #hero {
+    position: relative;
     text-align: center;
-    padding: 2em;
-    background: #007bff;
-    color: #fff;
+    flex-direction: column;  /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Ensure text is centered */
+    height: 100vh; /* Full viewport height */
+    display: grid;
+    place-items: center;  /* Centers both horizontally & vertically */
+  }
+
+  #hero h1 {
+    font-size: 4rem;
+    font-family:'Times New Roman', Times, serif;
+    letter-spacing: 5px;
+    text-align: center; 
+  }
+  .bubble-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 400px;
+    height: 400px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.5em 1em;
-    background: #0056b3;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+.bubble {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    cursor: grab;
+    user-select: none; /* Prevents text selection */
+    -webkit-user-drag: none; /* Prevents dragging elements like images */
 }
+
+.main-blob {
+    width: 400px;
+    height: 400px;
+    cursor: grab;
+    
+}
+
+.blob path {
+  fill: url(#blobGradient); /* Apply gradient from SVG */
+  filter: drop-shadow(0 0 20px rgba(230, 173, 229, 0.8)); /* Glow effect */
+}
+
+
+.small-blob1 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(206, 173, 230, 0.5));
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(230, 173, 229, 0.8);
+  transform: translate(-100%, -50%);
+    
+}
+
+.small-blob2 {
+  position: absolute;
+    width: 70px;
+    height: 70px;
+    opacity: 0.7;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(206, 173, 230, 0.5));
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(230, 173, 229, 0.8);
+    transform: translate(500%, 100%);
+}
+
+
+  
 
 /* Section Styling */
 section {
