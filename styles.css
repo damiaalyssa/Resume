@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #fffefe;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background: #ffffff;
+    color: #fff;
+    padding: 1em 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 5em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Hover effect for navigation links */
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+    padding: 10px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: -53px;
+    bottom: -5px;
+    width: 280%; /* Increase the width */
+    height: 60px; /* Increase the height */
+    background: url('assets/scribble.png') no-repeat center/contain;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 2em;
+    background: #007bff;
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Section Styling */
+section {
+    padding: 2em;
+    background: #fff;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+form input, form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 0.5em 1em;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: #007bff;
+    color: #fff;
+}
