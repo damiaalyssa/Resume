@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Landing Page</title>
 </head>
@@ -17,13 +22,16 @@
             </ul>
         </nav>
     </header>
+    
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Hi, <span class="highlight">I'm Damia!</span>
+            <br>a 2nd year Comp Science <br> student in MMU</h1>
+        </div>
 
-    <div id="hero">
-        <h1 class="hero_h1">Hi, I’m Damia!
-        <br> A 2nd year Comp Science 
-        <br>student in MMU </h1>
+        <svg id="bubbles"></svg>
+
         <div class = "bubble-container">
-
             <!-- Main draggable bubble -->
             <div class="bubble main-blob">
                 <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -41,13 +49,17 @@
             <div class="bubble small-blob1"></div>
             <div class="bubble small-blob2"></div>
         </div>
+
+        <div class="button-container">
+            <a href="https://your-portfolio-link.com" target="_blank" class="hero-button work">View My Resume</a>
+            <a href="#contact" class="hero-button work">Let's connect ><</a>
+        </div>
        
     </div>
     
     
 
 
-    <script src="script.js"></script>
 
     <section id="about">
         <h2>About Us</h2>
@@ -76,5 +88,7 @@
     <footer>
         <p>&copy; 2025 Your Company. All rights reserved.</p>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Bubbles</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #e0f2fe, #f3e8ff);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .dark body {
+      background: linear-gradient(to bottom right, #1e3a8a, #581c87);
+    }
+    
+    .bubbles-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translate(var(--tx), var(--ty)) scale(1.2);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+    }
+    
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1200px;
+      padding: 0 1rem;
+      margin-top: 10vh;
+    }
+    
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    
+    .gradient-text {
+      display: inline-block;
+      background: linear-gradient(to right, #2563eb, #9333ea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fadeUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    
+    .dark .gradient-text {
+      background: linear-gradient(to right, #93c5fd, #d8b4fe);
+    }
+    
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .buttons-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 5vh;
+      padding: 0 1rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    
+    .button-wrapper {
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(96, 165, 250, 0.3), rgba(192, 132, 252, 0.3));
+      padding: 1px;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+    
+    .button-wrapper:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .button {
+      display: inline-flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+      border-radius: 0.95rem;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    
+    .dark .button {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #93c5fd;
+      border-color: rgba(96, 165, 250, 0.5);
+    }
+    
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    
+    .dark .button:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .button-text {
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+    
+    .button:hover .button-text {
+      opacity: 1;
+    }
+    
+    .button-arrow {
+      margin-left: 0.75rem;
+      opacity: 0.7;
+      transform: translateX(0);
+      transition: all 0.3s;
+    }
+    
+    .button:hover .button-arrow {
+      opacity: 1;
+      transform: translateX(6px);
+    }
+    
+    .word {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+    
+    .word:last-child {
+      margin-right: 0;
+    }
+    
+    .letter {
+      display: inline-block;
+      animation-name: fadeUp;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles-container" id="bubbles-container"></div>
+  
+  <div class="content">
+    <h1 id="title"></h1>
+  </div>
+  
+  <div class="buttons-container">
+    <div class="button-wrapper">
+      <button class="button" id="toggle-theme">
+        <span class="button-text">Toggle Theme</span>
+        <span class="button-arrow">→</span>
+      </button>
+    </div>
+    
+    <div class="button-wrapper">
+      <button class="button" id="add-bubbles">
+        <span class="button-text">Add More Bubbles</span>
+        <span class="button-arrow">+</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Create bubbles
+    function createBubbles(count = 50) {
+      const container = document.getElementById('bubbles-container');
+      
+      for (let i = 0; i < count; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Random properties
+        const size = Math.random() * 20 + 5;
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        
+        // Random movement
+        const tx = (Math.random() * 100 - 50) + 'px';
+        const ty = (Math.random() * 100 - 50) + 'px';
+        
+        // Set styles
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
+        bubble.style.backgroundColor = `rgba(${r}, ${g}, ${b}, 0.3)`;
+        bubble.style.setProperty('--tx', tx);
+        bubble.style.setProperty('--ty', ty);
+        
+        // Random animation duration
+        bubble.style.animationDuration = `${5 + Math.random() * 10}s`;
+        
+        container.appendChild(bubble);
+      }
+    }
+    
+    // Animate title
+    function animateTitle(title) {
+      const titleElement = document.getElementById('title');
+      const words = title.split(' ');
+      
+      words.forEach((word, wordIndex) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.classList.add('word');
+        
+        const letters = word.split('');
+        letters.forEach((letter, letterIndex) => {
+          const letterSpan = document.createElement('span');
+          letterSpan.classList.add('letter', 'gradient-text');
+          letterSpan.textContent = letter;
+          letterSpan.style.animationDelay = `${wordIndex * 0.1 + letterIndex * 0.03}s`;
+          
+          wordSpan.appendChild(letterSpan);
+        });
+        
+        titleElement.appendChild(wordSpan);
+      });
+    }
+    
+    // Toggle dark mode
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+    
+    // Add more bubbles
+    function addMoreBubbles() {
+      createBubbles(20);
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      createBubbles();
+      animateTitle('Floating Bubbles');
+      
+      // Button event listeners
+      document.getElementById('toggle-theme').addEventListener('click', toggleDarkMode);
+      document.getElementById('add-bubbles').addEventListener('click', addMoreBubbles);
+    });
+    
+    // Resize handler
+    window.addEventListener('resize', () => {
+      const container = document.getElementById('bubbles-container');
+      container.innerHTML = '';
+      createBubbles();
+    });
+  </script>
+</body>
+</html>

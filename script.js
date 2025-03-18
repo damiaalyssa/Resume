@@ -1,6 +1,7 @@
 const mainBubble = document.querySelector(".main-blob");
 const smallBubbles = document.querySelectorAll(".small-blob1, .small-blob2");
-const hero = document.querySelector(".hero"); // Get hero section
+const heroText = document.querySelector(".hero-text");
+
 
 
 let isDragging = false;
@@ -50,6 +51,8 @@ function smoothMove() {
 
     requestAnimationFrame(smoothMove);
 }
+
+
 
 // ✅ Start trailing animation
 smoothMove();
