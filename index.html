@@ -9,24 +9,30 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-    <title>Landing Page</title>
+
+    <title>Damia Alyssa's website</title>
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        
     </header>
-    
-    <div class="hero">
+
+    <div class="hero" id="hero">
+        <div class="bubbles-container" id="bubbles-container"></div>
+
         <div class="hero-text">
-            <h1>Hi, <span class="highlight">I'm Damia!</span>
-            <br>a 2nd year Comp Science <br> student in MMU</h1>
+            <h1>Hi, I'm <span class="highlight">Damia Alyssa!</span></h1>
+            <p>A 2nd year Computer Science student <br> specializing in Data Science</p>
         </div>
 
         <svg id="bubbles"></svg>
@@ -34,6 +40,8 @@
         <div class = "bubble-container">
             <!-- Main draggable bubble -->
             <div class="bubble main-blob">
+                <p> ↓ Move the bubble!</p>
+
                 <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                     <radialGradient id="blobGradient" cx="30%" cy="30%" r="100%">
@@ -50,24 +58,60 @@
             <div class="bubble small-blob2"></div>
         </div>
 
+
         <div class="button-container">
-            <a href="https://your-portfolio-link.com" target="_blank" class="hero-button work">View My Resume</a>
-            <a href="#contact" class="hero-button work">Let's connect ><</a>
+            <a href="https://your-portfolio-link.com" target="_blank" class="hero-button resume">View My Resume</a>
+            <a href="#contact" class="hero-button connect">Let's connect ><</a>
         </div>
        
     </div>
+
+    <div class="proj_content">
+        <section class="projects" id="projects">
+           
+            <div class="left-part">
+                <h2>Projects</h2>
+                <p>We are passionate about creating solutions that drive results and make an impact.</p>
+            </div>
+       
+            <div class="right-part">
+                <div class="carousel">
+                    <div class="carousel-cell">
+                    <img src="project1.jpg" alt="Project 1">
+                    <h3>Project One</h3>
+                    <p>Data Science</p>
+                    <a href="#" class="btn">View Details</a>
+                    </div>
+                
+                    <div class="carousel-cell">
+                    <img src="project2.jpg" alt="Project 2">
+                    <h3>Project Two</h3>
+                    <p>Cybersecurity</p>
+                    <a href="#" class="btn">View Details</a>
+                    </div>
+                
+                    <div class="carousel-cell">
+                    <img src="project3.jpg" alt="Project 3">
+                    <h3>Project Three</h3>
+                    <p>Web Development</p>
+                    <a href="#" class="btn">View Details</a>
+                    </div>
+
+                    <div class="carousel-cell">
+                        <img src="project4.jpg" alt="Project 4">
+                        <h3>Project Four</h3>
+                        <p>Web Development</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </div>
     
-    
 
-
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We are passionate about creating solutions that drive results and make an impact.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
+    <section id="about" class="about">
+        <h2>About me</h2>
         <ul>
             <li>Web Design</li>
             <li>Development</li>
@@ -75,7 +119,7 @@
         </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <form>
             <input type="text" placeholder="Your Name" required>
@@ -86,9 +130,15 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
+        <p>&copy; 2025 Damia Alyssa. All rights reserved.</p>
     </footer>
     
-    <script src="script.js"></script>
+
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  
+
 </body>
 </html>
