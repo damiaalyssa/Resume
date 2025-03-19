@@ -5,7 +5,7 @@
   }
   
 html {
-    overflow-x: hidden;
+   overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -100,13 +100,15 @@ nav ul li a:hover {
     display: grid;
     place-items: center;  /* Centers both horizontally & vertically */
     padding-top: 150px;
-    background: linear-gradient(135deg, #bfc7f3, #f8c8dc, #cce3de, #bfc7f3);
-  }
+    background: radial-gradient(circle at 0% 0%,#f9c7f1, #78bde9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 .hero-text h1{
     font-family: 'Georgia', serif;; /* Choose a nice font */
     font-size: 4rem; /* Adjust size */
     font-weight: 400; 
+    color: rgb(255, 255, 255);
+    font-style: italic;
 
 }
 .hero-text p{
@@ -114,15 +116,12 @@ nav ul li a:hover {
     font-family: Arial, Helvetica, sans-serif; /* Choose a nice font */
     font-size: 20px; /* Adjust size */
     font-weight: bold; 
+    color: rgb(255, 252, 252);
+
 
 }
 
 
-.hero-text span {
-    font-weight: 400; /* Ensures it's not bold */
-    color: #8f1111; /* Brownish color */
-    
-}
 
 #bubbles {
     position: absolute;
@@ -134,8 +133,8 @@ nav ul li a:hover {
 .bubble-container {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(80%, -50%);
+    left: 40%;
+    transform: translate(110%, -50%);
     width: 400px;
     height: 400px;
 }
@@ -160,7 +159,6 @@ nav ul li a:hover {
 
 .blob path {
   fill: url(#blobGradient); /* Apply gradient from SVG */
-  filter: drop-shadow(0 0 20px rgba(230, 173, 229, 0.8)); /* Glow effect */
 }
 
 
@@ -267,9 +265,9 @@ nav ul li a:hover {
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: bold;
-    color: white;
     border: #000000;
-    border-radius: 8px;
+    border-radius: 25px;
+
     cursor: pointer;
     transition: 0.3s ease;
     text-decoration: none;
@@ -277,11 +275,16 @@ nav ul li a:hover {
 }
 
 .hero-button.resume {
-    background-color: #8f1111;
+  color: white;
+  background-color: #919aef;
+  border: 2px solid rgba(255, 255, 255, 0.736); /* Light border */
 }
 
 .hero-button.connect {
-    background-color: #000000;
+  color:#6f79cd;
+  background-color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.736); /* Light border */
+
 }
 
 .hero-button:hover {
@@ -298,55 +301,56 @@ section {
 }
 
 .proj_content {
-    background: #e8ecfe;
+  background: linear-gradient(to bottom,#78bde9, #6f79cd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     gap: 20px;
     justify-content: center;  /* Centers the content */
     align-items: center; /* Align items properly */
     width: 100%;
+    height: 100vh;
 }
 
 .projects {
-    display: flex; /* Makes left and right part sit side by side */
-    justify-content: space-between; /* Adds space between left and right parts */
-    margin: 5em 0em;
-    width: 90%; /* Ensure it does not take full width */
-    background-color: #007bff;
+  align-items: center; /* Align items properly */
+  display: grid;
+  grid-template-columns: repeat( 2 , minmax(500px, 1fr));
+  justify-content: center; /* Adds space between left and right parts */
+  margin: 5em 0em;
+  width: 90%; /* Ensure it does not take full width */
+  height: 90%;
     
 }
 .left-part {
-    flex: 1; /* Takes equal space */
-    padding: 20px;
-    background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; /* Center text */
+  padding: 20% 20%;
+  justify-content: center;  /* Centers the content */
+  align-items: center; /* Align items properly */
+  height: 90%;
 }
 
 .right-part {
-    flex: 1; /* Takes equal space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 20px;
+  padding: 0% 12%;
+  justify-content: center;  /* Centers the content */
+  height: 90%;
 }
   
 .carousel {
-    margin-top: 2em; /* Adjust this value */
-
-    background: #0f172a; /* Dark background */
-    padding: 20px 0;
-    width: 350px;
-    border-radius: 25px;
+  justify-content: center;  /* Centers the content */
+  align-items: center;
+  background: #0f172a; /* Dark background */
+  padding: 20px 0;
+  width: 500px;
+  border-radius: 25px;
+  height: 100%;
   }
   
   .carousel-cell {
-        width: 30%; /* Adjust as needed */
-        min-width: 300px; /* Ensures the card isn't too small */
-        margin: 10px;
-    margin-right: 20px;
+    justify-content: center;  /* Centers the content */
+
+    margin: 10px 10px;
+    height: 440px;
+    width: 30%; /* Adjust as needed */
+    min-width: 300px; /* Ensures the card isn't too small */
+
     background: linear-gradient(to bottom, #1e293b, #334155);
     border-radius: 15px;
     padding: 20px;
@@ -386,8 +390,20 @@ section {
   }
   
 
+.abouts {
+  width: 100%;
+  height: 100vh;
+  background-color: #6f79cd;
+  padding: 5% 0;
+}
+
 .about {
-    margin: 4em 20em;
+  background-color: #171e5c;
+  margin: 0em 20em;
+  
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .contact {
